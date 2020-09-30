@@ -12,7 +12,9 @@ on:
     - cron: 0 20 * * *
   push:
     branches: 
-      - master    
+      - master
+    paths:
+      - '.config'
   release:
     types: [published]
 
