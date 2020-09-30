@@ -88,6 +88,9 @@ jobs:
           CONFIG_PACKAGE_kmod-usb2-pci=y
           CONFIG_PACKAGE_kmod-usb3=y
           EOF
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-accesscontrol=y
+          EOF
           #
           # ===============================================================
           # 
