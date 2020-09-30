@@ -90,6 +90,10 @@ jobs:
           EOF
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-accesscontrol=y
+          CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          CONFIG_PACKAGE_luci-app-arpbind=y
+          CONFIG_PACKAGE_luci-app-attendedsysupgrade=y
+          CONFIG_PACKAGE_luci-app-autoreboot=y
           EOF
           #
           # ===============================================================
