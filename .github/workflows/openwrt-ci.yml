@@ -13,8 +13,6 @@ on:
   push:
     branches: 
       - master
-    paths:
-      - '.config'
   release:
     types: [published]
 
