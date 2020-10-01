@@ -255,14 +255,12 @@ jobs:
           # Target Images
           #
           # CONFIG_TARGET_ROOTFS_INITRAMFS is not set
-          CONFIG_EXTERNAL_CPIO=""
-  
+          CONFIG_EXTERNAL_CPIO="
           #
           # Root filesystem archives
           #
           # CONFIG_TARGET_ROOTFS_CPIOGZ is not set
           # CONFIG_TARGET_ROOTFS_TARGZ is not set
-  
           #
           # Root filesystem images
           #
@@ -284,7 +282,6 @@ jobs:
           # CONFIG_VDI_IMAGES is not set
           CONFIG_VMDK_IMAGES=y
           # CONFIG_TARGET_IMAGES_GZIP is not set
-  
           #
           # Image Options
           #
@@ -292,7 +289,6 @@ jobs:
           CONFIG_TARGET_ROOTFS_PARTSIZE=512
           CONFIG_TARGET_ROOTFS_PARTNAME=""
           # end of Target Images
-  
           #
           # Global build settings
           #
@@ -303,7 +299,6 @@ jobs:
           # CONFIG_BUILDBOT is not set
           CONFIG_SIGNED_PACKAGES=y
           CONFIG_SIGNATURE_CHECK=y
-  
           #
           # General build options
           #
@@ -316,7 +311,6 @@ jobs:
           # CONFIG_IPK_FILES_CHECKSUMS is not set
           # CONFIG_INCLUDE_CONFIG is not set
           # CONFIG_COLLECT_KERNEL_DEBUG is not set
-  
           #
           # Kernel build options
           #
