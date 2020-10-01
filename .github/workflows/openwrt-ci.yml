@@ -72,10 +72,8 @@ jobs:
           # 在 cat >> .config <<EOF 到 EOF 之间粘贴你的编译配置, 需注意缩进关系
           # 例如:
 
-          # OpenWrt Configuration
           cat >> .config <<EOF
-          CONFIG_MODULES=y
-          CONFIG_HAVE_DOT_CONFIG=y
+          # OpenWrt Configuration
           CONFIG_TARGET_x86=y
           CONFIG_TARGET_x86_64=y
           CONFIG_TARGET_x86_64_DEVICE_generic=y
@@ -105,7 +103,7 @@ jobs:
           CONFIG_DEFAULT_default-settings=y
           CONFIG_DEFAULT_dnsmasq-full=y
           CONFIG_DEFAULT_dropbear=y
-          CONFIG_DEFAULT_e2fsp
+          CONFIG_DEFAULT_e2fsprogs=y
           CONFIG_DEFAULT_fdisk=y
           CONFIG_DEFAULT_firewall=y
           CONFIG_DEFAULT_fstools=y
@@ -172,7 +170,6 @@ jobs:
           CONFIG_DEFAULT_luci-app-ipsec-vpnd=y
           CONFIG_DEFAULT_luci-app-nlbwmon=y
           CONFIG_DEFAULT_luci-app-ramfree=y
-          CONFIG_DEFAULT_luci-app-sfe=y
           CONFIG_DEFAULT_luci-app-ssr-plus=y
           CONFIG_DEFAULT_luci-app-unblockmusic=y
           CONFIG_DEFAULT_luci-app-upnp=y
@@ -212,9 +209,9 @@ jobs:
           CONFIG_USES_BOOT_PART=y
           CONFIG_x86_64=y
           CONFIG_ARCH="x86_64"
-          #新增 Target Images
+          # 新增 Target Images
           CONFIG_EXTERNAL_CPIO=""
-          #新增 Root filesystem images
+          # 新增 Root filesystem images
           CONFIG_TARGET_ROOTFS_SQUASHFS=y
           CONFIG_TARGET_SQUASHFS_BLOCK_SIZE=256
           CONFIG_TARGET_UBIFS_FREE_SPACE_FIXUP=y
@@ -228,18 +225,18 @@ jobs:
           CONFIG_GRUB_TIMEOUT="0"
           CONFIG_GRUB_TITLE="OpenWrt"
           CONFIG_VMDK_IMAGES=y
-          #新增 Image Options
+          # 新增 Image Options
           CONFIG_TARGET_KERNEL_PARTSIZE=256
           CONFIG_TARGET_ROOTFS_PARTSIZE=512
           CONFIG_TARGET_ROOTFS_PARTNAME=""
-          #新增 Global build settings
+          # 新增 Global build settings
           CONFIG_ALL_KMODS=y
           CONFIG_SIGNED_PACKAGES=y
           CONFIG_SIGNATURE_CHECK=y
-          #新增 General build options
+          # 新增 General build options
           CONFIG_DISPLAY_SUPPORT=y
           CONFIG_SHADOW_PASSWORDS=y
-          #新增 Kernel build options
+          # 新增 Kernel build options
           CONFIG_KERNEL_BUILD_USER=""
           CONFIG_KERNEL_BUILD_DOMAIN=""
           CONFIG_KERNEL_PRINTK=y
@@ -291,12 +288,12 @@ jobs:
           CONFIG_KERNEL_IPV6_MULTIPLE_TABLES=y
           CONFIG_KERNEL_IPV6_SUBTREES=y
           CONFIG_KERNEL_IPV6_MROUTE=y
-          #新增 Filesystem ACL and attr support options
           CONFIG_KERNEL_SQUASHFS_FRAGMENT_CACHE_SIZE=3
           CONFIG_KERNEL_CC_OPTIMIZE_FOR_PERFORMANCE=y
-          CONFIG_IPV6=y
+          # 新增 Stripping options
           CONFIG_USE_SSTRIP=y
           CONFIG_USE_UCLIBCXX=y
+          # 新增 Hardening build options
           CONFIG_PKG_CHECK_FORMAT_SECURITY=y
           CONFIG_PKG_ASLR_PIE_REGULAR=y
           CONFIG_PKG_CC_STACKPROTECTOR_REGULAR=y
@@ -304,6 +301,7 @@ jobs:
           CONFIG_KERNEL_STACKPROTECTOR=y
           CONFIG_PKG_FORTIFY_SOURCE_1=y
           CONFIG_PKG_RELRO_FULL=y
+          # 新增 
           CONFIG_BINARY_FOLDER=""
           CONFIG_DOWNLOAD_FOLDER=""
           CONFIG_LOCALMIRROR=""
@@ -343,7 +341,6 @@ jobs:
           CONFIG_FEED_telephony=y
           CONFIG_FEED_freifunk=y
           #新增 Base system
-          CONFIG_PACKAGE_attendedsysupgrade-common=y
           CONFIG_PACKAGE_base-files=y
           CONFIG_PACKAGE_block-mount=y
           CONFIG_PACKAGE_bridge=y
@@ -659,7 +656,7 @@ jobs:
           CONFIG_PACKAGE_dnsmasq_full_ipset=y
           CONFIG_PACKAGE_dnsmasq_full_tftp=y
           CONFIG_PACKAGE_dropbear=y
-          #新增 Configuration
+          # 新增 Configuration
           CONFIG_DROPBEAR_CURVE25519=y
           CONFIG_DROPBEAR_CHACHA20POLY1305=y
           CONFIG_DROPBEAR_DBCLIENT=y
@@ -693,18 +690,19 @@ jobs:
           CONFIG_PACKAGE_urngd=y
           CONFIG_PACKAGE_usign=y
           CONFIG_PACKAGE_zram-swap=y
-          #新增 Administration
+          # 新增 Administration
           CONFIG_ZABBIX_NOSSL=y
           CONFIG_ZABBIX_POSTGRESQL=y
           CONFIG_PACKAGE_htop=y
           CONFIG_PACKAGE_netdata=y
           CONFIG_PACKAGE_grub2=y
           CONFIG_PACKAGE_grub2-efi=y
-          #新增 Extra packages
+          # 新增 Extra packages
           CONFIG_PACKAGE_autocore=y
           CONFIG_PACKAGE_automount=y
           CONFIG_PACKAGE_autosamba=y
           CONFIG_PACKAGE_ipv6helper=y
+          # 新增 Firmware
           CONFIG_PACKAGE_amdgpu-firmware=y
           CONFIG_PACKAGE_ath10k-firmware-qca9888=y
           CONFIG_PACKAGE_ath10k-firmware-qca988x=y
@@ -731,7 +729,7 @@ jobs:
           CONFIG_PACKAGE_rtl8822be-firmware=y
           CONFIG_PACKAGE_rtl8822ce-firmware=y
           CONFIG_PACKAGE_wireless-regdb=y
-          #新增 Block Devices
+          # 新增 Block Devices
           CONFIG_PACKAGE_kmod-aoe=y
           CONFIG_PACKAGE_kmod-ata-ahci=y
           CONFIG_PACKAGE_kmod-ata-artop=y
@@ -764,7 +762,7 @@ jobs:
           CONFIG_PACKAGE_kmod-scsi-core=y
           CONFIG_PACKAGE_kmod-scsi-generic=y
           CONFIG_PACKAGE_kmod-scsi-tape=y
-          #新增 Cryptographic API modules
+          # 新增 Cryptographic API modules
           CONFIG_PACKAGE_kmod-crypto-acompress=y
           CONFIG_PACKAGE_kmod-crypto-aead=y
           CONFIG_PACKAGE_kmod-crypto-arc4=y
@@ -799,7 +797,7 @@ jobs:
           CONFIG_PACKAGE_kmod-crypto-sha512=y
           CONFIG_PACKAGE_kmod-crypto-user=y
           CONFIG_PACKAGE_kmod-cryptodev=y
-          #新增 Filesystems
+          # 新增 Filesystems
           CONFIG_PACKAGE_kmod-fs-9p=y
           CONFIG_PACKAGE_kmod-fs-afs=y
           CONFIG_PACKAGE_kmod-fs-antfs=y
@@ -835,15 +833,30 @@ jobs:
           CONFIG_PACKAGE_kmod-fs-vfat=y
           CONFIG_PACKAGE_kmod-fs-xfs=y
           CONFIG_PACKAGE_kmod-fuse=y
-          #新增 FireWire support
+          # 新增 FireWire support
+          # 新增 Hardware Monitoring Support
           CONFIG_PACKAGE_kmod-hwmon-core=y
+          # 新增 I2C support
           CONFIG_PACKAGE_kmod-i2c-algo-bit=y
+          CONFIG_PACKAGE_kmod-i2c-algo-pca=y
+          CONFIG_PACKAGE_kmod-i2c-algo-pcf=y
           CONFIG_PACKAGE_kmod-i2c-core=y
-          #新增 Input modules
+          CONFIG_PACKAGE_kmod-i2c-gpio=y
+          CONFIG_PACKAGE_kmod-i2c-i801=y
+          CONFIG_PACKAGE_kmod-i2c-mux=y
+          CONFIG_PACKAGE_kmod-i2c-mux-gpio=y
+          CONFIG_PACKAGE_kmod-i2c-mux-pca9541=y
+          CONFIG_PACKAGE_kmod-i2c-mux-pca954x=y
+          CONFIG_PACKAGE_kmod-i2c-piix4=y
+          CONFIG_PACKAGE_kmod-i2c-pxa=y
+          CONFIG_PACKAGE_kmod-i2c-smbus=y
+          CONFIG_PACKAGE_kmod-i2c-tiny-usb=y
+          # 新增 Input modules
           CONFIG_PACKAGE_kmod-hid=y
           CONFIG_PACKAGE_kmod-hid-generic=y
           CONFIG_PACKAGE_kmod-input-core=y
           CONFIG_PACKAGE_kmod-input-evdev=y
+          # 新增 Libraries
           CONFIG_PACKAGE_kmod-asn1-decoder=y
           CONFIG_PACKAGE_kmod-lib-crc-ccitt=y
           CONFIG_PACKAGE_kmod-lib-crc-itu-t=y
@@ -857,10 +870,12 @@ jobs:
           CONFIG_PACKAGE_kmod-lib-zlib-deflate=y
           CONFIG_PACKAGE_kmod-lib-zlib-inflate=y
           CONFIG_PACKAGE_kmod-lib-zstd=y
+          # 新增 Native Language Support
           CONFIG_PACKAGE_kmod-nls-base=y
           CONFIG_PACKAGE_kmod-nls-cp437=y
           CONFIG_PACKAGE_kmod-nls-iso8859-1=y
           CONFIG_PACKAGE_kmod-nls-utf8=y
+          # 新增 Netfilter Extensions
           CONFIG_PACKAGE_kmod-arptables=y
           CONFIG_PACKAGE_kmod-br-netfilter=y
           CONFIG_PACKAGE_kmod-ebtables=y
@@ -893,7 +908,7 @@ jobs:
           CONFIG_PACKAGE_kmod-nf-reject=y
           CONFIG_PACKAGE_kmod-nf-reject6=y
           CONFIG_PACKAGE_kmod-nfnetlink=y
-          #新增 Network Devices
+          # 新增 Network Devices
           CONFIG_PACKAGE_kmod-8139cp=y
           CONFIG_PACKAGE_kmod-8139too=y
           CONFIG_PACKAGE_kmod-bnx2=y
@@ -945,7 +960,10 @@ jobs:
           CONFIG_PACKAGE_kmod-slhc=y
           CONFIG_PACKAGE_kmod-tcp-bbr=y
           CONFIG_PACKAGE_kmod-tun=y
+          # 新增 Other modules
+          CONFIG_PACKAGE_kmod-button-hotplug=y
           CONFIG_PACKAGE_kmod-dma-buf=y
+          CONFIG_PACKAGE_kmod-gpio-button-hotplug=y
           CONFIG_PACKAGE_kmod-mmc=y
           CONFIG_PACKAGE_kmod-pps=y
           CONFIG_PACKAGE_kmod-ptp=y
@@ -978,8 +996,8 @@ jobs:
           CONFIG_PACKAGE_kmod-fb-cfb-imgblt=y
           CONFIG_PACKAGE_kmod-fb-sys-fops=y
           CONFIG_PACKAGE_kmod-fb-sys-ram=y
-          CONFIG_PACKAGE_kmod-irqbypass=y
           # 新增 Virtualization
+          CONFIG_PACKAGE_kmod-irqbypass=y
           CONFIG_PACKAGE_kmod-kvm-intel=y
           CONFIG_PACKAGE_kmod-kvm-x86=y
           # 新增 Wireless Drivers
@@ -1039,18 +1057,22 @@ jobs:
           CONFIG_OPENSSL_ENGINE_BUILTIN_AFALG=y
           CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO=y
           CONFIG_PACKAGE_libopenssl-conf=y
+          # 新增 未知
           CONFIG_PACKAGE_libblkid=y
           CONFIG_PACKAGE_libblobmsg-json=y
           CONFIG_PACKAGE_libcap=y
           CONFIG_PACKAGE_libcares=y
           CONFIG_PACKAGE_libcomerr=y
           CONFIG_PACKAGE_libcurl=y
+          # 新增 SSL support
           CONFIG_LIBCURL_MBEDTLS=y
+          # 新增 Supported protocols
           CONFIG_LIBCURL_FILE=y
           CONFIG_LIBCURL_FTP=y
           CONFIG_LIBCURL_HTTP=y
           CONFIG_LIBCURL_COOKIES=y
           CONFIG_LIBCURL_NO_SMB="!"
+          # 新增 Miscellaneous
           CONFIG_LIBCURL_PROXY=y
           CONFIG_PACKAGE_libelf=y
           CONFIG_PACKAGE_libev=y
@@ -1071,6 +1093,7 @@ jobs:
           CONFIG_PACKAGE_libnatpmp=y
           CONFIG_PACKAGE_libncurses=y
           CONFIG_PACKAGE_libnettle=y
+          # 新增 未知
           CONFIG_PACKAGE_libnghttp2=y
           CONFIG_PACKAGE_libnl-tiny=y
           CONFIG_PACKAGE_libpcre=y
