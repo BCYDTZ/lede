@@ -1128,7 +1128,6 @@ jobs:
           # 3. Applications
           CONFIG_PACKAGE_luci-app-accesscontrol=y
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
-          CONFIG_PACKAGE_luci-app-attendedsysupgrade=y
           CONFIG_PACKAGE_luci-app-autoreboot=y
           CONFIG_PACKAGE_luci-app-diskman=y
           CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
@@ -1138,6 +1137,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-diskman_INCLUDE_kmod_md_linear=y
           CONFIG_PACKAGE_luci-app-filetransfer=y
           CONFIG_PACKAGE_luci-app-firewall=y
+          CONFIG_PACKAGE_luci-app-flowoffload=y
           CONFIG_PACKAGE_luci-app-https-dns-proxy=y
           CONFIG_PACKAGE_luci-app-ipsec-vpnd=y
           CONFIG_PACKAGE_luci-app-netdata=y
@@ -1150,7 +1150,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui=y
           CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng=y
           CONFIG_PACKAGE_luci-app-samba=y
-          CONFIG_PACKAGE_luci-app-sfe=y
+          CONFIG_PACKAGE_luci-app-shadowsocks-libev=y
+          CONFIG_PACKAGE_luci-app-ssrserver-python=y
           CONFIG_PACKAGE_luci-app-statistics=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-unblockmusic=y
@@ -1196,11 +1197,24 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-statistics-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-unblockmusic-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-webadmin-zh-cn=y
+          # 新增 Select postfix build options
+          CONFIG_POSTFIX_TLS=y
+          CONFIG_POSTFIX_SASL=y
+          CONFIG_POSTFIX_LDAP=y
+          CONFIG_POSTFIX_CDB=y
+          CONFIG_POSTFIX_SQLITE=y
+          CONFIG_POSTFIX_PCRE=y
+          # 新增 Dial-in/up
           CONFIG_PACKAGE_rp-pppoe-common=y
           CONFIG_PACKAGE_rp-pppoe-relay=y
+          # 新增 File Transfer
           CONFIG_PACKAGE_vsftpd-alt=y
           CONFIG_VSFTPD_USE_UCI_SCRIPTS=y
           CONFIG_PACKAGE_wget=y
+          # 新增 Firewall
           CONFIG_PACKAGE_iptables=y
           CONFIG_PACKAGE_ip6tables=y
           CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
@@ -1208,21 +1222,30 @@ jobs:
           CONFIG_PACKAGE_iptables-mod-ipopt=y
           CONFIG_PACKAGE_iptables-mod-ipsec=y
           CONFIG_PACKAGE_miniupnpd=y
+          # 新增 IP Addresses and Names
           CONFIG_PACKAGE_ddns-scripts=y
           CONFIG_PACKAGE_ddns-scripts_aliyun=y
           CONFIG_PACKAGE_ddns-scripts_dnspod=y
           CONFIG_PACKAGE_wsdd2=y
+          # 新增 NeteaseMusic
           CONFIG_PACKAGE_UnblockNeteaseMusic=y
           CONFIG_PACKAGE_UnblockNeteaseMusicGo=y
           CONFIG_UnblockNeteaseMusicGo_INCLUDE_GOPROXY=y
+          # 新增 OpenLDAP
           CONFIG_OPENLDAP_DEBUG=y
+          # 新增 Project V
           CONFIG_v2ray-plugin_INCLUDE_GOPROXY=y
+          # 新增 Routing and Redirection
           CONFIG_PACKAGE_ip-full=y
           CONFIG_PACKAGE_tc=y
+          # 新增 Time Synchronization
           CONFIG_PACKAGE_ntpclient=y
+          # 新增 VPN
           CONFIG_PACKAGE_strongswan=y
+          # 新增 Configuration
           CONFIG_STRONGSWAN_ROUTING_TABLE="220"
           CONFIG_STRONGSWAN_ROUTING_TABLE_PRIO="220"
+          # 新增 Packages
           CONFIG_PACKAGE_strongswan-charon=y
           CONFIG_PACKAGE_strongswan-ipsec=y
           CONFIG_PACKAGE_strongswan-minimal=y
@@ -1232,6 +1255,47 @@ jobs:
           CONFIG_PACKAGE_strongswan-mod-kernel-libipsec=y
           CONFIG_PACKAGE_strongswan-mod-kernel-netlink=y
           CONFIG_PACKAGE_strongswan-mod-nonce=y
+          CONFIG_PACKAGE_strongswan-mod-pubkey=y
+          CONFIG_PACKAGE_strongswan-mod-random=y
+          CONFIG_PACKAGE_strongswan-mod-sha1=y
+          CONFIG_PACKAGE_strongswan-mod-socket-default=y
+          CONFIG_PACKAGE_strongswan-mod-stroke=y
+          CONFIG_PACKAGE_strongswan-mod-updown=y
+          CONFIG_PACKAGE_strongswan-mod-x509=y
+          CONFIG_PACKAGE_strongswan-mod-xauth-generic=y
+          CONFIG_PACKAGE_strongswan-mod-xcbc=y
+          CONFIG_PACKAGE_zerotier=y
+          # 新增 Web Servers/Proxies
+          CONFIG_PACKAGE_cgi-io=y
+          CONFIG_NGINX_NOPCRE=y
+          CONFIG_PACKAGE_pdnsd-alt=y
+          CONFIG_PACKAGE_privoxy=y
+          # 新增 Config options. Overwrites/ignore configuration file settings
+          CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y
+          CONFIG_PACKAGE_uhttpd=y
+          CONFIG_PACKAGE_uhttpd-mod-ubus=y
+          # 新增 未知
+          CONFIG_PACKAGE_6in4=y
+          CONFIG_PACKAGE_adbyby=y
+          CONFIG_PACKAGE_etherwake=y
+          CONFIG_PACKAGE_ethtool=y
+          CONFIG_PACKAGE_https-dns-proxy=y
+          CONFIG_PACKAGE_ipset=y
+          CONFIG_PACKAGE_iw=y
+          CONFIG_PACKAGE_libipset=y
+          CONFIG_PACKAGE_nlbwmon=y
+          CONFIG_PACKAGE_odhcp6c=y
+          CONFIG_PACKAGE_odhcp6c_ext_cer_id=0
+          CONFIG_PACKAGE_odhcpd-ipv6only=y
+          CONFIG_PACKAGE_odhcpd_ipv6only_ext_cer_id=0
+          CONFIG_PACKAGE_ppp=y
+          CONFIG_PACKAGE_ppp-mod-pppoe=y
+          CONFIG_PACKAGE_proto-bonding=y
+          CONFIG_PACKAGE_samba36-server=y
+          CONFIG_PACKAGE_SAMBA_MAX_DEBUG_LEVEL=-1
+          CONFIG_PACKAGE_uclient-fetch=y
+          CONFIG_PACKAGE_vlmcsd=y
+          CONFIG_PACKAGE_wol=y
           CONFIG_PACKAGE_rrdtool1=y
           CONFIG_PACKAGE_blkid=y
           CONFIG_PACKAGE_fdisk=y
