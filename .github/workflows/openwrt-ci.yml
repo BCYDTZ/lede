@@ -290,6 +290,56 @@ jobs:
           CONFIG_KERNEL_IPV6_MROUTE=y
           CONFIG_KERNEL_SQUASHFS_FRAGMENT_CACHE_SIZE=3
           CONFIG_KERNEL_CC_OPTIMIZE_FOR_PERFORMANCE=y
+          # 新增 Stripping options
+          CONFIG_USE_SSTRIP=y
+          CONFIG_USE_UCLIBCXX=y
+          # 新增 Hardening build options
+          CONFIG_PKG_CHECK_FORMAT_SECURITY=y
+          CONFIG_PKG_ASLR_PIE_REGULAR=y
+          CONFIG_PKG_CC_STACKPROTECTOR_REGULAR=y
+          CONFIG_KERNEL_CC_STACKPROTECTOR_REGULAR=y
+          CONFIG_KERNEL_STACKPROTECTOR=y
+          CONFIG_PKG_FORTIFY_SOURCE_1=y
+          CONFIG_PKG_RELRO_FULL=y
+          # 新增 
+          CONFIG_BINARY_FOLDER=""
+          CONFIG_DOWNLOAD_FOLDER=""
+          CONFIG_LOCALMIRROR=""
+          CONFIG_AUTOREBUILD=y
+          CONFIG_BUILD_SUFFIX=""
+          CONFIG_TARGET_ROOTFS_DIR=""
+          CONFIG_EXTERNAL_KERNEL_TREE=""
+          CONFIG_KERNEL_GIT_CLONE_URI=""
+          CONFIG_BUILD_LOG_DIR=""
+          CONFIG_EXTRA_OPTIMIZATION="-fno-caller-saves -fno-plt"
+          CONFIG_TARGET_OPTIMIZATION="-Os -pipe"
+          CONFIG_EXTRA_BINUTILS_CONFIG_OPTIONS=""
+          CONFIG_EXTRA_GCC_CONFIG_OPTIONS=""
+          CONFIG_NASM=y
+          CONFIG_GDB=y
+          CONFIG_USE_MUSL=y
+          CONFIG_SSP_SUPPORT=y
+          CONFIG_BINUTILS_VERSION_2_31_1=y
+          CONFIG_BINUTILS_VERSION="2.31.1"
+          CONFIG_GCC_VERSION="8.4.0"
+          CONFIG_LIBC="musl"
+          CONFIG_TARGET_SUFFIX="musl"
+          CONFIG_TARGET_PREINIT_SUPPRESS_STDERR=y
+          CONFIG_TARGET_PREINIT_TIMEOUT=2
+          CONFIG_TARGET_PREINIT_IFNAME=""
+          CONFIG_TARGET_PREINIT_IP="192.168.1.1"
+          CONFIG_TARGET_PREINIT_NETMASK="255.255.255.0"
+          CONFIG_TARGET_PREINIT_BROADCAST="192.168.1.255"
+          CONFIG_TARGET_INIT_PATH="/usr/sbin:/usr/bin:/sbin:/bin"
+          CONFIG_TARGET_INIT_ENV=""
+          CONFIG_TARGET_INIT_CMD="/sbin/init"
+          CONFIG_TARGET_INIT_SUPPRESS_STDERR=y
+          CONFIG_PER_FEED_REPO=y
+          CONFIG_FEED_packages=y
+          CONFIG_FEED_luci=y
+          CONFIG_FEED_routing=y
+          CONFIG_FEED_telephony=y
+          CONFIG_FEED_freifunk=y
           EOF
 
           #
