@@ -60,7 +60,7 @@ jobs:
 
       - name: Update feeds
         run: |
-          ./scripts/feeds update luci
+          ./scripts/feeds update -a
           ./scripts/feeds install -a -p luci
 
       - name: Generate configuration file
