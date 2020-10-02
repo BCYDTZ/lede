@@ -204,12 +204,14 @@ jobs:
           CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-proto-bonding=y
+          CONFIG_PACKAGE_luci-app-poweroff=y
           # 4. Themes
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-bootstrap=y
           CONFIG_PACKAGE_luci-theme-freifunk-generic=y
           CONFIG_PACKAGE_luci-theme-material=y
           CONFIG_PACKAGE_luci-theme-netgear=y
+          CONFIG_PACKAGE_luci-theme-opentomcat=y
           # 5. Protocols
           CONFIG_PACKAGE_luci-proto-bonding=y
           CONFIG_PACKAGE_luci-proto-ipv6=y
@@ -245,6 +247,7 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-webadmin-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-chinese=y
           # end of 9. Freifunk
           CONFIG_DEFAULT_mkf2fs=y
           CONFIG_DEFAULT_mtd=y
