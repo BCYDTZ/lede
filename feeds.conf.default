@@ -3,10 +3,7 @@ src-git luci https://github.com/BCYDTZ/luci
 src-git routing https://git.openwrt.org/feed/routing.git
 src-git telephony https://git.openwrt.org/feed/telephony.git
 src-git freifunk https://github.com/freifunk/openwrt-packages.git
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-git clone https://github.com/jerrykuku/lua-maxminddb.git  #git lua-maxminddb 依赖
-git clone https://github.com/jerrykuku/luci-app-vssr.git  
-#src-git jerryk https://github.com/jerrykuku/openwrt-package.git
+src-git jerryk https://github.com/jerrykuku/openwrt-package
 src-git kenzo https://github.com/kenzok8/openwrt-packages
 src-git small https://github.com/kenzok8/small
 #src-git poweroff https://github.com/esirplayground/luci-app-poweroff.git
