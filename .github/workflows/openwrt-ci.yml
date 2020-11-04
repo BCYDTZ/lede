@@ -57,7 +57,7 @@ jobs:
       - name: Generate configuration file
         run: |
           cp ./makeconfig.d/x86_64.config ./.config
-          make menuconfig
+          make defconfig
 
       - name: Make download
         run: |
