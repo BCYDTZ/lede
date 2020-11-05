@@ -53,6 +53,8 @@ ifeq ($(ARCH),aarch64)
 endif
 
 define Build/Prepare
+	mkdir $(PKG_BUILD_DIR)/$(PKG_NAME)
+	cp -r ./files/$(DIR_ARCH)/* $(PKG_BUILD_DIR)/$(PKG_NAME)/lingti
 endef
 
 define Build/Compile
