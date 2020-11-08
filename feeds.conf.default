@@ -15,5 +15,5 @@ src-git small https://github.com/kenzok8/small
 #src-link custom /usr/src/openwrt/custom-feed
 #src-git helloworld https://github.com/fw876/helloworld
 src-git UUGameAcc https://github.com/BCYDTZ/UUGameAcc.git
-src-git luciappUUGameAcc https://github.com/BCYDTZ/luci-app-UUGameAcc.git
+
 
