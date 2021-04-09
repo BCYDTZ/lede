@@ -19,7 +19,7 @@ on:
     types: [published]
     
 env:   
-  UPLOAD_RELEASE: ture
+  UPLOAD_RELEASE: true
 
 jobs:
 
