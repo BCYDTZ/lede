@@ -208,3 +208,57 @@ define Package/cypress-firmware-43570-pcie/install
 endef
 
 $(eval $(call BuildPackage,cypress-firmware-43570-pcie))
+
+# Cypress 4373 SDIO Firmware
+define Package/cypress-firmware-4373-sdio
+  $(Package/cypress-firmware-default)
+  TITLE:=CYW4373 FullMac SDIO firmware
+endef
+
+define Package/cypress-firmware-4373-sdio/install
+	$(INSTALL_DIR) $(1)/lib/firmware/brcm
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/firmware/cyfmac4373-sdio.bin \
+		$(1)/lib/firmware/brcm/brcmfmac4373-sdio.bin
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/firmware/cyfmac4373-sdio.clm_blob \
+		$(1)/lib/firmware/brcm/brcmfmac4373-sdio.clm_blob
+endef
+
+$(eval $(call BuildPackage,cypress-firmware-4373-sdio))
+
+# Cypress 4373 USB Firmware
+define Package/cypress-firmware-4373-usb
+  $(Package/cypress-firmware-default)
+  TITLE:=CYW4373 FullMac USB firmware
+endef
+
+define Package/cypress-firmware-4373-usb/install
+	$(INSTALL_DIR) $(1)/lib/firmware/brcm
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/firmware/cyfmac4373-usb.bin \
+		$(1)/lib/firmware/brcm/brcmfmac4373-usb.bin
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/firmware/cyfmac4373.clm_blob \
+		$(1)/lib/firmware/brcm/brcmfmac4373.clm_blob
+endef
+
+$(eval $(call BuildPackage,cypress-firmware-4373-usb))
+
+# Cypress 54591 PCIe Firmware
+define Package/cypress-firmware-54591-pcie
+  $(Package/cypress-firmware-default)
+  TITLE:=CYW54591 FullMac PCIe firmware
+endef
+
+define Package/cypress-firmware-54591-pcie/install
+	$(INSTALL_DIR) $(1)/lib/firmware/brcm
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/firmware/cyfmac54591-pcie.bin \
+		$(1)/lib/firmware/brcm/brcmfmac54591-pcie.bin
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/firmware/cyfmac54591-pcie.clm_blob \
+		$(1)/lib/firmware/brcm/brcmfmac54591-pcie.clm_blob
+endef
+
+$(eval $(call BuildPackage,cypress-firmware-54591-pcie))
