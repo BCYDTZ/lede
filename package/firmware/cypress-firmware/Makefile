@@ -262,3 +262,4 @@ define Package/cypress-firmware-54591-pcie/install
 endef
 
 $(eval $(call BuildPackage,cypress-firmware-54591-pcie))
+
