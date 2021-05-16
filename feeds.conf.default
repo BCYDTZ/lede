@@ -4,7 +4,7 @@ src-git routing https://git.openwrt.org/feed/routing.git
 src-git telephony https://git.openwrt.org/feed/telephony.git
 src-git jerryk https://github.com/jerrykuku/openwrt-package
 src-git lienol https://github.com/BCYDTZ/openwrt-package
-src-git small https://github.com/kenzok8/small
+#src-git small https://github.com/kenzok8/small
 src-git GameAcc https://github.com/BCYDTZ/GameAcc.git
 src-git lisaac https://github.com/lisaac/luci-app-dockerman.git
 src-git kenzo https://github.com/BCYDTZ/openwrt-packages
