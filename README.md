@@ -11,7 +11,7 @@
 
 1. **不要用 root 用户进行编译**
 2. 国内用户编译前最好准备好梯子
-3. 默认登陆IP 192.168.1.1 密码 password
+3. 默认登陆IP 192.168.3.1 密码 password
 
 ## 编译命令
 
@@ -33,7 +33,7 @@
 3. 下载源代码，更新 feeds 并选择配置
 
    ```bash
-   git clone https://github.com/coolsnowwolf/lede
+   git clone https://github.com/BCYDTZ/lede
    cd lede
    ./scripts/feeds update -a
    ./scripts/feeds install -a
