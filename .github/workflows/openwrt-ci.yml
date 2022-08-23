@@ -1,17 +1,25 @@
+#
+# This is free software, lisence use MIT.
+# 
+# Copyright (C) 2019 P3TERX <https://p3terx.com>
+# Copyright (C) 2020 KFERMercer <KFER.Mercer@gmail.com>
 # 
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
-# Copyright (C) 2019 P3TERX
-#
-# Copyright (C) 2020 KFERMercer
-#
+
 name: OpenWrt-CI
 
 on:
+  push:
+    branches: 
+      - master
   schedule:
     - cron: 0 20 * * *
   release:
     types: [published]
+    
+env:   
+  UPLOAD_RELEASE: true
 
 jobs:
 
@@ -46,12 +54,13 @@ jobs:
 
       - name: Update feeds
         run: |
-          sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        run: make defconfig
+        run: |
+          cp ./makeconfig.d/x86_64.config ./.config
+          make defconfig
 
       - name: Make download
         run: |
@@ -97,7 +106,6 @@ jobs:
         with:
           name: OpenWrt_firmware
           path: ./bin/targets/
-  
 
       - name: Upload release asset
         if: github.event == 'release'
@@ -107,3 +115,37 @@ jobs:
           file: ./artifact/firmware/*
           tag: ${{ github.ref }}
           file_glob: true
+          
+      - name: Generate release tag
+        id: tag
+        if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+        run: |
+         echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
+         touch release.txt
+         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
+         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
+         echo "::set-output name=status::success"
+      - name: Upload firmware to release
+        uses: softprops/action-gh-release@v1
+        if: steps.tag.outputs.status == 'success' && !cancelled()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}
+          body_path: release.txt
+          files: ./bin/targets/x86/64/*
+
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 3
+
+      - name: Remove old Releases
+        uses: dev-drprasad/delete-older-releases@v0.1.0
+        if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+        with:
+          keep_latest: 3
+          delete_tags: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
