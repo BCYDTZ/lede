@@ -52,7 +52,7 @@ define KernelPackage/hwmon-adt7410
 	$(LINUX_DIR)/drivers/hwmon/adt7x10.ko \
 	$(LINUX_DIR)/drivers/hwmon/adt7410.ko
   AUTOLOAD:=$(call AutoLoad,60,adt7x10 adt7410)
-  $(call AddDepends/hwmon,+kmod-i2c-core)
+  $(call AddDepends/hwmon,+kmod-regmap-i2c)
 endef
 
 define KernelPackage/hwmon-adt7410/description
@@ -321,9 +321,10 @@ $(eval $(call KernelPackage,hwmon-mcp3021))
 define KernelPackage/hwmon-nct6775
   TITLE:=NCT6106D/6775F/6776F/6779D/6791D/6792D/6793D and compatibles monitoring support
   KCONFIG:=CONFIG_SENSORS_NCT6775
-  FILES:=$(LINUX_DIR)/drivers/hwmon/nct6775.ko
+  FILES:=$(LINUX_DIR)/drivers/hwmon/nct6775.ko \
+	$(LINUX_DIR)/drivers/hwmon/nct6775-core.ko
   AUTOLOAD:=$(call AutoProbe,nct6775)
-  $(call AddDepends/hwmon,@PCI_SUPPORT @TARGET_x86 +kmod-hwmon-vid)
+  $(call AddDepends/hwmon,@PCI_SUPPORT @TARGET_x86 +kmod-hwmon-vid +kmod-regmap-i2c)
 endef
 
 define KernelPackage/hwmon-nct6775/description
