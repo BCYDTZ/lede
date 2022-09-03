@@ -17,11 +17,13 @@ on:
     - cron: 0 20 * * *
   release:
     types: [published]
-    
+
+permissions:
+  contents: read 
+  
 env:   
   UPLOAD_RELEASE: true
-permissions:
-  contents: read
+
 jobs:
 
   build_openwrt:
