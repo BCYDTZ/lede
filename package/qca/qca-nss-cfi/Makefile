@@ -3,9 +3,15 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=qca-nss-cfi
 PKG_RELEASE:=1
 
+<<<<<<< HEAD
 PKG_SOURCE_URL:=https://git.codelinaro.org/clo/qsdk/oss/lklm/nss-cfi.git
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_DATE:=2022-12-15
+=======
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_DATE:=2022-12-15
+PKG_SOURCE_URL:=https://git.codelinaro.org/clo/qsdk/oss/lklm/nss-cfi.git
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 PKG_SOURCE_VERSION:=5cd07ce299ee3ce62dbe4f6783ad36361e57583b
 PKG_MIRROR_HASH:=e449eee24fccc09b1cf0f1367bb54cedadcc46a30423934744e78272443197e7
 
@@ -15,11 +21,17 @@ include $(INCLUDE_DIR)/kernel.mk
 include $(INCLUDE_DIR)/package.mk
 
 ifneq (, $(findstring $(CONFIG_TARGET_SUBTARGET), "ipq807x" "ipq60xx"))
+<<<<<<< HEAD
 #4.4/5.4 + ipq807x/ipq60xx/ipq50xx
   CFI_OCF_DIR:=ocf/v2.0
   CFI_CRYPTOAPI_DIR:=cryptoapi/v2.0
 else
 #4.4 Kernel + ipq806x
+=======
+  CFI_OCF_DIR:=ocf/v2.0
+  CFI_CRYPTOAPI_DIR:=cryptoapi/v2.0
+else
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
   CFI_CRYPTOAPI_DIR:=cryptoapi/v1.1
   CFI_OCF_DIR:=ocf/v1.0
   CFI_IPSEC_DIR:=ipsec/v1.0
@@ -56,7 +68,10 @@ ifneq (, $(findstring $(CONFIG_TARGET_SUBTARGET), "ipq807x"))
 EXTRA_CFLAGS+= -I$(STAGING_DIR)/usr/include/qca-nss-clients
 endif
 
+<<<<<<< HEAD
 # Build individual packages if selected
+=======
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 ifneq ($(CONFIG_PACKAGE_kmod-qca-nss-cfi-cryptoapi),)
 MAKE_OPTS+= \
 	cryptoapi=y \
@@ -70,8 +85,12 @@ endif
 
 define Build/Compile
 	+$(MAKE) -C "$(LINUX_DIR)" $(strip $(MAKE_OPTS)) \
+<<<<<<< HEAD
 		CROSS_COMPILE="$(TARGET_CROSS)" \
 		ARCH="$(LINUX_KARCH)" \
+=======
+		$(KERNEL_MAKE_FLAGS) \
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 		M="$(PKG_BUILD_DIR)" \
 		EXTRA_CFLAGS="$(EXTRA_CFLAGS)" \
 		CC="$(TARGET_CC)" \
@@ -79,7 +98,10 @@ define Build/Compile
 		CFI_OCF_DIR=$(CFI_OCF_DIR) \
 		CFI_IPSEC_DIR=$(CFI_IPSEC_DIR) \
 		SoC=$(SOC) \
+<<<<<<< HEAD
 		$(KERNEL_MAKE_FLAGS) \
+=======
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 		$(PKG_JOBS) \
 		modules
 endef

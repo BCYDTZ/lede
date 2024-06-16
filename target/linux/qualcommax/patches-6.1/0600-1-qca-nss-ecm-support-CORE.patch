@@ -90,10 +90,17 @@
  	NETDEV_OFFLOAD_XSTATS_DISABLE,
  	NETDEV_OFFLOAD_XSTATS_REPORT_USED,
  	NETDEV_OFFLOAD_XSTATS_REPORT_DELTA,
+<<<<<<< HEAD
 +   /* QCA NSS ECM Support - Start */
 +   NETDEV_BR_JOIN,
 +   NETDEV_BR_LEAVE,
 +   /* QCA NSS ECM Support - End */
+=======
++	/* QCA NSS ECM Support - Start */
++	NETDEV_BR_JOIN,
++	NETDEV_BR_LEAVE,
++	/* QCA NSS ECM Support - End */
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
  };
  const char *netdev_cmd_to_name(enum netdev_cmd cmd);
  
@@ -548,7 +555,11 @@
  	struct net_device *dev;
  	int err, notify = 0;
  	u8 old;
+<<<<<<< HEAD
 +   struct neigh_mac_update nmu; /* QCA NSS ECM support */
+=======
++	struct neigh_mac_update nmu; /* QCA NSS ECM support */
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
  
  	trace_neigh_update(neigh, lladdr, new, flags, nlmsg_pid);
  
@@ -560,7 +571,11 @@
 +
 +	memset(&nmu, 0, sizeof(struct neigh_mac_update)); /* QCA NSS ECM support */
 +
+<<<<<<< HEAD
 +   if (!(flags & NEIGH_UPDATE_F_ADMIN) &&
+=======
++	if (!(flags & NEIGH_UPDATE_F_ADMIN) &&
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
  	    (old & (NUD_NOARP | NUD_PERMANENT)))
  		goto out;
  
@@ -569,12 +584,20 @@
  		   - if they are different, check override flag
  		 */
 -		if ((old & NUD_VALID) &&
+<<<<<<< HEAD
 +       /* QCA NSS ECM update - Start */
+=======
++		/* QCA NSS ECM update - Start */
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 +		memcpy(nmu.old_mac, neigh->ha, dev->addr_len);
 +		memcpy(nmu.update_mac, lladdr, dev->addr_len);
 +		/* QCA NSS ECM update - End */
 +
+<<<<<<< HEAD
 +       if ((old & NUD_VALID) &&
+=======
++		if ((old & NUD_VALID) &&
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
  		    !memcmp(lladdr, neigh->ha, dev->addr_len))
  			lladdr = neigh->ha;
  	} else {
@@ -587,7 +610,11 @@
  		neigh_update_notify(neigh, nlmsg_pid);
 +		atomic_notifier_call_chain(&neigh_mac_update_notifier_list, 0,
 +					   (struct neigh_mac_update *)&nmu); /* QCA NSS ECM support */
+<<<<<<< HEAD
 +    }
+=======
++	}
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
  	trace_neigh_update_done(neigh, err);
  	return err;
  }
@@ -755,7 +782,11 @@
 +
 +    dev = ifp->idev->dev;
 +    if (dev)
+<<<<<<< HEAD
 +    	dev_hold(dev);
+=======
++        dev_hold(dev);
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 +
 +    in6_ifa_put(ifp);
 +
@@ -773,11 +804,19 @@
  
 +/*
 + * vxlan_get_vni()
+<<<<<<< HEAD
 + *      Returns the vni corresponding to tunnel
 + */
 +static inline u32 vxlan_get_vni(struct vxlan_dev *vxlan_tun)
 +{
 +    return be32_to_cpu(vxlan_tun->cfg.vni);
+=======
++ *	Returns the vni corresponding to tunnel
++ */
++static inline u32 vxlan_get_vni(struct vxlan_dev *vxlan_tun)
++{
++	return be32_to_cpu(vxlan_tun->cfg.vni);
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 +}
 +
  static inline unsigned short vxlan_get_sk_family(struct vxlan_sock *vs)

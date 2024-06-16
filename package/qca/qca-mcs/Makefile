@@ -3,9 +3,15 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=qca-mcs
 PKG_RELEASE:=1
 
+<<<<<<< HEAD
 PKG_SOURCE_URL:=https://git.codelinaro.org/clo/qsdk/oss/lklm/qca-mcs.git
 PKG_SOURCE_DATE:=2023-04-21
 PKG_SOURCE_PROTO:=git
+=======
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_DATE:=2023-04-21
+PKG_SOURCE_URL:=https://git.codelinaro.org/clo/qsdk/oss/lklm/qca-mcs.git
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 PKG_SOURCE_VERSION:=8797823e392ac3d9098c090964afd46805a0eb2b
 PKG_MIRROR_HASH:=f0fa76af4545842ebf8b4f0743e1079e190dfa5f3f0d464c063063521d3d30df
 
@@ -21,9 +27,16 @@ define KernelPackage/qca-mcs
   URL:=http://www.qca.qualcomm.com
   MAINTAINER:=Qualcomm Atheros, Inc.
   TITLE:=QCA Multicast Snooping Support
+<<<<<<< HEAD
   DEPENDS:=+@KERNEL_IPV6_MROUTE +@KERNEL_IP_MROUTE
   KCONFIG:=CONFIG_NETFILTER=y \
            CONFIG_BRIDGE_NETFILTER=y
+=======
+  DEPENDS:=@TARGET_qualcommax \
+	+@KERNEL_IPV6_MROUTE +@KERNEL_IP_MROUTE
+  KCONFIG:=CONFIG_NETFILTER=y \
+	   CONFIG_BRIDGE_NETFILTER=y
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
   FILES:=$(PKG_BUILD_DIR)/qca-mcs.ko
   AUTOLOAD:=$(call AutoLoad,41,qca-mcs)
 endef
@@ -33,11 +46,19 @@ define KernelPackage/qca-mcs/Description
 endef
 
 QCA_MC_SNOOPING_HEADERS= \
+<<<<<<< HEAD
             $(PKG_BUILD_DIR)/mc_api.h \
             $(PKG_BUILD_DIR)/mc_ecm.h \
 
 define Build/InstallDev
   mkdir -p $(1)/usr/include/qca-mcs
+=======
+			$(PKG_BUILD_DIR)/mc_api.h \
+			$(PKG_BUILD_DIR)/mc_ecm.h \
+
+define Build/InstallDev
+	$(INSTALL_DIR) $(1)/usr/include/qca-mcs
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 	$(foreach header_file,$(QCA_MC_SNOOPING_HEADERS), $(CP) $(header_file) $(1)/usr/include/qca-mcs;)
 	$(foreach header_file,$(QCA_MC_SNOOPING_HEADERS), $(CP) $(header_file) $(1)/usr/include/;)
 endef
@@ -54,6 +75,7 @@ QCA_MC_SNOOPING_MAKE_OPTS:= \
 
 define Build/Compile
 	+$(MAKE) -C $(LINUX_DIR) \
+<<<<<<< HEAD
       $(KERNEL_MAKE_FLAGS) \
       $(PKG_JOBS) \
       KBUILDPATH=$(LINUX_DIR) \
@@ -62,6 +84,16 @@ define Build/Compile
       EXTRA_CFLAGS="$(EXTRA_CFLAGS)" \
       $(strip $(QCA_MC_SNOOPING_MAKE_OPTS)) \
       modules
+=======
+		$(KERNEL_MAKE_FLAGS) \
+		$(PKG_JOBS) \
+		KBUILDPATH=$(LINUX_DIR) \
+		$(PKG_MAKE_FLAGS) \
+		M=$(PKG_BUILD_DIR) \
+		EXTRA_CFLAGS="$(EXTRA_CFLAGS)" \
+		$(strip $(QCA_MC_SNOOPING_MAKE_OPTS)) \
+		modules
+>>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 endef
 
 $(eval $(call KernelPackage,qca-mcs))
