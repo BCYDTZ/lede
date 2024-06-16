@@ -17,27 +17,6 @@
 +void ifb_update_offload_stats(struct net_device *dev, struct pcpu_sw_netstats *offload_stats)
 +{
 +	struct ifb_dev_private *dp;
-<<<<<<< HEAD
-+   struct ifb_q_private *txp;
-+
-+   if (!dev || !offload_stats) {
-+   	return;
-+   }
-+
-+   if (!(dev->priv_flags_ext & IFF_EXT_IFB)) {
-+       return;
-+   }
-+
-+   dp = netdev_priv(dev);
-+   txp = dp->tx_private;
-+
-+   u64_stats_update_begin(&txp->rx_stats.sync);
-+   txp->rx_stats.packets += u64_stats_read(&offload_stats->rx_packets);
-+   txp->rx_stats.bytes += u64_stats_read(&offload_stats->rx_bytes);
-+   txp->tx_stats.packets += u64_stats_read(&offload_stats->tx_packets);
-+   txp->tx_stats.bytes += u64_stats_read(&offload_stats->tx_bytes);
-+   u64_stats_update_end(&txp->rx_stats.sync);
-=======
 +	struct ifb_q_private *txp;
 +
 +	if (!dev || !offload_stats) {
@@ -57,7 +36,6 @@
 +	txp->tx_stats.packets += u64_stats_read(&offload_stats->tx_packets);
 +	txp->tx_stats.bytes += u64_stats_read(&offload_stats->tx_bytes);
 +	u64_stats_update_end(&txp->rx_stats.sync);
->>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 +}
 +EXPORT_SYMBOL(ifb_update_offload_stats);
 +

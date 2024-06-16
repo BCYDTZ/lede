@@ -11,11 +11,7 @@ PKG_NAME:=nss-firmware
 PKG_SOURCE_DATE:=2022-07-14
 PKG_SOURCE_VERSION:=ade6bff594377c9d9c79b45e39bf104303d919bc
 PKG_MIRROR_HASH:=99ca44dd0733cff569308550c6c74febb0e7a03093b14df092d0f53362189647
-<<<<<<< HEAD
-PKG_RELEASE:=$(AUTORELEASE)
-=======
 PKG_RELEASE:=1
->>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/quic/qca-sdk-nss-fw.git
@@ -35,11 +31,7 @@ define Package/nss-firmware-default
   SECTION:=firmware
   CATEGORY:=Firmware
   URL:=$(PKG_SOURCE_URL)
-<<<<<<< HEAD
-  DEPENDS:=@(TARGET_ipq807x||TARGET_ipq60xx||TARGET_qualcommax)
-=======
   DEPENDS:=@TARGET_qualcommax
->>>>>>> 89db9c40509bda3bd27abc3730822cec52c0fb00
 endef
 
 define Package/nss-firmware-ipq6018
