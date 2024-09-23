@@ -1,6 +1,6 @@
 # 欢迎来到 BCYDTZ 的 LEDE 源码仓库
 
-为国产龙芯 LOONGSON SoC loongarch64 / 飞腾 Phytium 腾锐2000 系列架构添加支持
+为国产龙芯 LOONGSON SoC loongarch64 / 飞腾 Phytium 腾锐 D2000 系列架构添加支持
 
 I18N: [English](README_EN.md) | [简体中文](README.md) | [日本語](README_JA.md)
 
@@ -11,12 +11,14 @@ I18N: [English](README_EN.md) | [简体中文](README.md) | [日本語](README_J
 Op固件技术研究群 ,号码 891659613 ，加群链接：[点击加入](https://jq.qq.com/?_wv=1027&k=XL8SK5aC "Op固件技术研究群")
 =======
 
-2. TG 讨论群： OP 编译官方大群 ，加群链接：[点击加入](https://t.me/JhKgAA6Hx1 "OP 编译官方大群")
-<a href ="https://item.taobao.com/item.htm?spm=a230r.1.14.26.4bb55247bX9SiV&id=692981063139&ns=1&abbucket=15#detail"><img src="https://github.com/coolsnowwolf/lede/blob/master/doc/h68k.jpg?raw=true" width=600  /></a>
-=======
 ## 软路由介绍 
 
-硬酷R2 - N95/N300迷你四网HomeLab服务器
+1. QQ 讨论群：Op 固件技术研究群，号码 891659613，加群链接：[点击加入](https://jq.qq.com/?_wv=1027&k=XL8SK5aC "Op固件技术研究群")
+2. TG 讨论群：OP 编译官方大群，加群链接：[点击加入](https://t.me/JhKgAA6Hx1 "OP 编译官方大群")
+
+## 软路由介绍
+
+硬酷 R2 - N95/N300 迷你四网 HomeLab 服务器
 
 [商品介绍页面 - 硬酷科技（支持花呗）](https://item.taobao.com/item.htm?id=721197662185)
 
@@ -125,7 +127,7 @@ PS > git clone git@github.com:coolsnowwolf/lede.git <your_local_lede_path>
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-3. 使用 Homebrew 安装工具链、依赖与基础软件包:
+3. 使用 Homebrew 安装工具链、依赖与基础软件包：
 
    ```bash
    brew unlink awk
@@ -146,8 +148,9 @@ PS > git clone git@github.com:coolsnowwolf/lede.git <your_local_lede_path>
    echo 'export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"' >> ~/.bashrc
    echo 'export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"' >> ~/.bashrc
    ```
+
    - apple 芯片的 mac
-   
+
    ```zsh
    echo 'export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"' >> ~/.bashrc
    echo 'export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"' >> ~/.bashrc
