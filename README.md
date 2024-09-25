@@ -19,14 +19,12 @@ Op固件技术研究群 ,号码 891659613 ，加群链接：[点击加入](https
 ## 软路由 ArmSoM Sige 系列介绍
 
 ArmSoM-Sige 系列：软路由、单板计算机、小型服务器与智能家居的全能之选。
-ArmSoM-Sige 系统: Your All-in-One Powerhouse for Soft Routing, SBCs, Mini Servers, and Home Automation.
 
 [商品介绍页面 - ArmSom 品牌店 ](https://shop518100695.taobao.com/)
 
 购买链接：
 
 [![sige1-zh](doc/sige-zh.jpg)](https://item.taobao.com/item.htm?id=721197662185)
-[![sige1-en](doc/sige-en.jpg)](https://aliexpress.com/item/3256807356692995.html)
 
 ## 注意
 
