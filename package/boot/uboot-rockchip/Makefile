@@ -97,6 +97,13 @@ define U-Boot/dlfr100-rk3399
     dilusense_dlfr100
 endef
 
+define U-Boot/fine3399-rk3399
+  $(U-Boot/rk3399/Default)
+  NAME:=Fine 3399
+  BUILD_DEVICES:= \
+    rumu3f_fine-3399
+endef
+
 define U-Boot/h3399pc-rk3399
   $(U-Boot/rk3399/Default)
   NAME:=SHAREVDI H3399PC
@@ -222,16 +229,6 @@ define U-Boot/xiaobao-nas-v1-rk3399
     codinge_xiaobao-nas-v1
 endef
 
-define U-Boot/fine-3399-rk3399
-  $(U-Boot/rk3399/Default)
-  NAME:=Fine 3399
-  BUILD_DEVICES:= \
-    rumu3f_fine-3399
-  DEPENDS:=+PACKAGE_u-boot-$(1):rkbin-rk3399
-  ATF:=rk3399_bl31_v1.36.elf
-  USE_RKBIN:=1
-endef
-
 define U-Boot/guangmiao-g4c-rk3399
   $(U-Boot/rk3399/Default)
   NAME:=GuangMiao G4C
@@ -350,9 +347,9 @@ endef
 
 define U-Boot/seewo-sv21-rk3568
   $(U-Boot/rk3568/Default)
-  NAME:=Seewo sv21-rk3568
+  NAME:=seewo SV21
   BUILD_DEVICES:= \
-    seewo_sv21-rk3568
+    seewo_sv21
 endef
 
 define U-Boot/sige3-rk3568
@@ -412,7 +409,7 @@ UBOOT_TARGETS := \
   sige3-rk3568 \
   station-p2-rk3568 \
   dlfr100-rk3399 \
-  fine-3399-rk3399 \
+  fine3399-rk3399 \
   h3399pc-rk3399 \
   king3399-rk3399 \
   mpc1903-rk3399 \
