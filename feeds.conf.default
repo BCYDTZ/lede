@@ -1,5 +1,4 @@
 src-git packages https://github.com/coolsnowwolf/packages
-<<<<<<< HEAD
 src-git luci https://github.com/BCYDTZ/luci
 #src-git routing https://github.com/coolsnowwolf/routing
 src-git routing https://github.com/BCYDTZ/routing
