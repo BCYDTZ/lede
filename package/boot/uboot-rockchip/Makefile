@@ -150,12 +150,6 @@ define U-Boot/rock-pi-4-rk3399
   NAME:=Rock Pi 4
   BUILD_DEVICES:= \
     radxa_rock-pi-4
-<<<<<<< HEAD
-  DEPENDS:=+PACKAGE_u-boot-rock-pi-4-rk3399:trusted-firmware-a-rk3399
-  PKG_BUILD_DEPENDS:=trusted-firmware-a-rk3399
-  ATF:=rk3399_bl31.elf
-=======
->>>>>>> 0dc62d9d8bc29307d2001cf04b6a66851433d9e3
 endef
 
 define U-Boot/rockpro64-rk3399
@@ -163,56 +157,6 @@ define U-Boot/rockpro64-rk3399
   NAME:=RockPro64
   BUILD_DEVICES:= \
     pine64_rockpro64
-<<<<<<< HEAD
-  DEPENDS:=+PACKAGE_u-boot-rockpro64-rk3399:trusted-firmware-a-rk3399
-  PKG_BUILD_DEPENDS:=trusted-firmware-a-rk3399
-  ATF:=rk3399_bl31.elf
-endef
-
-define U-Boot/rongpin-king3399-rk3399
-  BUILD_SUBTARGET:=armv8
-  NAME:=Rongpin King3399
-  BUILD_DEVICES:= \
-    rongpin_king3399
-  DEPENDS:=+PACKAGE_u-boot-rongpin-king3399-rk3399:arm-trusted-firmware-rk3399
-  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
-  ATF:=rk3399_bl31_v1.36.elf
-  USE_RKBIN:=1
-endef
-
-define U-Boot/rocktech-mpc1903-rk3399
-  BUILD_SUBTARGET:=armv8
-  NAME:=Rocktech MPC1903
-  BUILD_DEVICES:= \
-    rocktech_mpc1903
-  DEPENDS:=+PACKAGE_u-boot-rocktech-mpc1903-rk3399:arm-trusted-firmware-rk3399
-  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
-  ATF:=rk3399_bl31_v1.36.elf
-  USE_RKBIN:=1
-endef
-
-define U-Boot/sharevdi-h3399pc-rk3399
-  BUILD_SUBTARGET:=armv8
-  NAME:=SHAREVDI H3399PC
-  BUILD_DEVICES:= \
-    sharevdi_h3399pc
-  DEPENDS:=+PACKAGE_u-boot-sharevdi-h3399pc-rk3399:arm-trusted-firmware-rk3399
-  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
-  ATF:=rk3399_bl31_v1.36.elf
-  USE_RKBIN:=1
-endef
-
-define U-Boot/dilusense-dlfr100-rk3399
-  BUILD_SUBTARGET:=armv8
-  NAME:=Dilusense DLFR100
-  BUILD_DEVICES:= \
-    dilusense_dlfr100
-  DEPENDS:=+PACKAGE_u-boot-dilusense-dlfr100-rk3399:arm-trusted-firmware-rk3399
-  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
-  ATF:=rk3399_bl31_v1.36.elf
-  USE_RKBIN:=1
-=======
->>>>>>> 0dc62d9d8bc29307d2001cf04b6a66851433d9e3
 endef
 
 define U-Boot/xiaobao-nas-v1-rk3399
@@ -482,11 +426,6 @@ UBOOT_TARGETS := \
   nanopc-t4-rk3399 \
   nanopi-r4s-rk3399 \
   nanopi-r4se-rk3399 \
-<<<<<<< HEAD
-  nanopi-r5s-rk3568 \
-  fine-3399-rk3399 \
-=======
->>>>>>> 0dc62d9d8bc29307d2001cf04b6a66851433d9e3
   rock-pi-4-rk3399 \
   rockpro64-rk3399 \
   sv901-eaio-rk3399 \
